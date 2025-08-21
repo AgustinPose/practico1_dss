@@ -60,6 +60,7 @@ Se eligió **ZAP o Burp Suite**
 #### 3. Instalación de Visual Studio Code en Kali Linux
 
 Para realizar la instalación de **Visual Studio Code** en Kali Linux seguir los siguientes pasos:
+
 1- Descargar el paquete oficial en formato `.deb` desde la página de Microsoft:
 ```bash
 wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868
