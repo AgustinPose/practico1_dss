@@ -43,7 +43,6 @@
 
 ![Instalación Kali Linux](img/Kali_configurado.png)
 
-  
 
 ---
 
@@ -51,7 +50,7 @@
 
 Se eligió **ZAP o Burp Suite**
 
-- Pasos de instalación.
+- Pasos de instalación. MENCIONAR QUE KALI LINUX YA CUENTA CON BURP SUITE Y BLA BLA
 
 - Configuración básica.
 
@@ -62,7 +61,7 @@ Se eligió **ZAP o Burp Suite**
 
 #### 3. Instalación de Visual Studio Code en Kali Linux
 
-Explicar el procedimiento y agregar captura.
+Explicar el procedimiento y agregar captura. 
 
 ![VS Code instalado](img/vscode.png)
 
