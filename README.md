@@ -37,9 +37,7 @@
         
 3. Iniciar la VM → elegir _Install_.
 
-4. Completar instalación con usuario/contraseña.
-
-5. Al finalizar, instalar **Guest Additions** (mejora pantalla compartida y portapapeles).
+4. Completar instalación con usuario/contraseña (kali/kali).
 
 ![Instalación Kali Linux](img/Kali_configurado.png)
 
