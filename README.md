@@ -89,23 +89,23 @@ Instrucciones de instalación + verificación con `docker --version`.
 
 ---
 
-#### 6. Ejecución de Crappi en Docker
+#### 6. Ejecución de CrAPI en Docker
 
-- Comandos para levantar Crappi.
+- Comandos para levantar CrAPI.
 
 - Verificación.
 
-![Crappi en ejecución](img/crappi.png)
+![CrAPI en ejecución](img/crAPI.png)
 
 ---
 
 ### 7. Prueba de tráfico en el proxy
 
-- Configuración del navegador.
-
-- Ejemplo de tráfico interceptado.
-
-![Tráfico interceptado](img/trafico_proxy.png)
+- Como se eligió **Burp Suite** como proxy de interceptación, se ejecutó con el comando `burpsuite` y se creó una instancia temporal
+- A continuación, se levantaron ambos proyectos probados anteriormente (OWASP Juice Shop y CrAPI) y se los abrió en Chromium
+  
+![Captura de tráfico interceptado de OWASP Juice Shop en Burp Suite](./imagenes/proxy-trafico.png)
+![Captura de tráfico interceptado de CrAPI en Burp Suite](./imagenes/proxy-trafico2.png)
 
 ---
 
