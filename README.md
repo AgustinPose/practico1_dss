@@ -13,13 +13,11 @@
 ---
 
 ### - Intro
-
- - El objetivo de este documento es presentar el proceso de creaccion y configuracion de un ambiente de trabajo seguro para posteriores actividades de la materia, de forma cronica y explicativa,
+- El objetivo de este documento es presentar el proceso de creaccion y configuracion de un ambiente de trabajo seguro para posteriores actividades de la materia, de forma cronica y explicativa,
 
 ---
 
 ### - Requisitos
-
 - Una computadora que se la banque (si tiene escasez de recursos, utilizar un proxy y Docker) [^1]
 - Herramientas: VirtualBox/VMware, Kali Linux, ZAP/Burp, VS Code, Docker, Juice Shop, Crappi.
 
@@ -93,32 +91,32 @@ code --version
 
 Para la instalación de Docker en Kali Linux seguimos los pasos oficiales de la documentación de  [https://www.kali.org/](Kali.org). Durante la instalacion registramos los comandos ejecutados y sus salidas junto a la configuracion
 
-##### 1. Buscamos documentacion en [https://www.kali.org/](Kali.org)
+1. Buscamos documentacion en [https://www.kali.org/](Kali.org)
 
 ![Docker funcionando](img/docker_1.png)
 
-##### 2. Actualizamos con apt update el gestor de paquetes de Debian
+2. Actualizamos con apt update el gestor de paquetes de Debian
 
 ![Docker funcionando](img/docker_2.png)
 
-##### 3. Instalamos paquete docker.io
+3. Instalamos paquete docker.io
 
--- Durante la instalación el sistema pidió confirmación para reiniciar servicios críticos como libc6. Se eligió la opción Yes para evitar problemas en futuros upgrades.
+- Durante la instalación el sistema pidió confirmación para reiniciar servicios críticos como libc6. Se eligió la opción Yes para evitar problemas en futuros upgrades.
 
-##### 4. Instalamos paquete docker.io
+4. Instalamos paquete docker.io
 
 ![Docker funcionando](img/docker_4.png)
 ![Docker funcionando](img/docker_3.png)
 
-##### 5. Hablilitar y arrancar elservicio Docker
+5. Hablilitar y arrancar elservicio Docker
 
 ![Docker funcionando](img/docker_5.png)
 
--- Verificamos la instalacion con el comoando **docker** que muestra la lista de comandos disponibles
+- Verificamos la instalacion con el comoando **docker** que muestra la lista de comandos disponibles
 
-##### 6. También se probo una instalacion alternativa para Docker CE 
+6. También se probo una instalacion alternativa para Docker CE 
 
--- Se probó agregar el repositorio oficial de Docker CE para Debian (base de Kali) y actualizar la instalación:
+- Se probó agregar el repositorio oficial de Docker CE para Debian (base de Kali) y actualizar la instalación:
 
 ![Docker funcionando](img/docker_7.png)
 
@@ -126,9 +124,9 @@ Para la instalación de Docker en Kali Linux seguimos los pasos oficiales de la 
 
 ![Docker funcionando](img/docker_9.png)
 
-##### 7. Pro ultimo probar la ejecución con contenedor “Hello World”
+7. Pro ultimo probar la ejecución con contenedor “Hello World”
 
--- docker run hello-world
+- docker run hello-world
 
 ![Docker funcionando](img/docker_10.png)
 
