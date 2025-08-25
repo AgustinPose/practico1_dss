@@ -12,10 +12,16 @@
 
 ---
 
+### - Intro
+
+ - El objetivo de este documento es presentar el proceso de creaccion y configuracion de un ambiente de trabajo seguro para posteriores actividades de la materia, de forma cronica y explicativa,
+
+---
+
 ### - Requisitos
 
 - Una computadora que se la banque (si tiene escasez de recursos, utilizar un proxy y Docker) [^1]
-- VirtualBox o VMWare instalado
+- Herramientas: VirtualBox/VMware, Kali Linux, ZAP/Burp, VS Code, Docker, Juice Shop, Crappi.
 
 ---
 
@@ -24,6 +30,7 @@
 #### 1. Instalación de la máquina virtual Kali Linux
 
 1. Descargar la **ISO de Kali Linux** desde [https://www.kali.org/](https://www.kali.org/).
+Kali ofrece a la hora de installar maquinas virtuales "pre armadas" las cuales nos facilitan el proceso de configuracion del sistema y viene con credenciales por defecto. Sino existen varias alternativas para descargarlo, como la propia imagen.
 
 2. En VirtualBox:
     
@@ -35,25 +42,29 @@
         
     -   Montar la ISO de Kali en la unidad óptica.
         
-3. Iniciar la VM → elegir _Install_.
-
-4. Completar instalación con usuario/contraseña (kali/kali).
-
 ![Instalación Kali Linux](img/Kali_configurado.png)
 
+3. Iniciar la VM → elegir _Install_.
+
+4. Completar insatlación con usuario/contraseña (kali/kali).
 
 ---
 
 #### 2. Instalación del proxy de interceptación
 
-Se eligió **ZAP o Burp Suite**
+Utilizamos como proxy de interceptación **Burp Suite**. COmo otra opción se puede probar con la instalación de **ZAP**
 
-- Pasos de instalación. MENCIONAR QUE KALI LINUX YA CUENTA CON BURP SUITE Y BLA BLA
+- En este caso con la instalacion de la maquina virtual de kali ya viene instalado como Proxy **Burp Suite**, entonces solo es necesario hacer el setup de la aplicacion.
 
-- Configuración básica.
+![Proxy configurado](img/burpsuite_1.png)
 
-![Proxy configurado](img/proxy_config.png)
+![Proxy configurado](img/burpsuite_2.png)
 
+![Proxy configurado](img/burpsuite_3.png)
+
+![Proxy configurado](img/burpsuite_4.png)
+
+- Vemos interfaz grafica de Bupr Suite con todas las herramientas que brinda
   
 ---
 
@@ -76,19 +87,50 @@ code --version
 
 ![VS Code instalado](img/vscode.png)
 
-  
-
 ---
 
 #### 4. Instalación de Docker en Kali Linux
 
-Instrucciones de instalación + verificación con `docker --version`.
+Para la instalación de Docker en Kali Linux seguimos los pasos oficiales de la documentación de  [https://www.kali.org/](Kali.org). Durante la instalacion registramos los comandos ejecutados y sus salidas junto a la configuracion
 
-![Docker funcionando](img/docker.png)
+##### 1. Buscamos documentacion en [https://www.kali.org/](Kali.org)
 
-  
+![Docker funcionando](img/docker_1.png)
 
----
+##### 2. Actualizamos con apt update el gestor de paquetes de Debian
+
+![Docker funcionando](img/docker_2.png)
+
+##### 3. Instalamos paquete docker.io
+
+-- Durante la instalación el sistema pidió confirmación para reiniciar servicios críticos como libc6. Se eligió la opción Yes para evitar problemas en futuros upgrades.
+
+##### 4. Instalamos paquete docker.io
+
+![Docker funcionando](img/docker_4.png)
+![Docker funcionando](img/docker_3.png)
+
+##### 5. Hablilitar y arrancar elservicio Docker
+
+![Docker funcionando](img/docker_5.png)
+
+-- Verificamos la instalacion con el comoando **docker** que muestra la lista de comandos disponibles
+
+##### 6. También se probo una instalacion alternativa para Docker CE 
+
+-- Se probó agregar el repositorio oficial de Docker CE para Debian (base de Kali) y actualizar la instalación:
+
+![Docker funcionando](img/docker_7.png)
+
+![Docker funcionando](img/docker_8.png)
+
+![Docker funcionando](img/docker_9.png)
+
+##### 7. Pro ultimo probar la ejecución con contenedor “Hello World”
+
+-- docker run hello-world
+
+![Docker funcionando](img/docker_10.png)
 
 #### 5. Ejecución de OWASP Juice Shop en Docker
 
