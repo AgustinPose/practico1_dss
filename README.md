@@ -27,7 +27,7 @@
 
 #### 1. Instalación de la máquina virtual Kali Linux
 
-1. Descargar la **ISO de Kali Linux** desde [https://www.kali.org/](https://www.kali.org/).
+1. Descargar la **ISO de Kali Linux** desde [Kali.org](https://www.kali.org/).
 Kali ofrece a la hora de installar maquinas virtuales "pre armadas" las cuales nos facilitan el proceso de configuracion del sistema y viene con credenciales por defecto. Sino existen varias alternativas para descargarlo, como la propia imagen.
 
 2. En VirtualBox:
@@ -100,23 +100,18 @@ Para la instalación de Docker en Kali Linux seguimos los pasos oficiales de la 
 ![Docker funcionando](img/docker_2.png)
 
 3. Instalamos paquete docker.io
-
-- Durante la instalación el sistema pidió confirmación para reiniciar servicios críticos como libc6. Se eligió la opción Yes para evitar problemas en futuros upgrades.
-
-4. Instalamos paquete docker.io
+    - Durante la instalación el sistema pidió confirmación para reiniciar servicios críticos como libc6. Se eligió la opción Yes para evitar problemas en futuros upgrades.
 
 ![Docker funcionando](img/docker_4.png)
 ![Docker funcionando](img/docker_3.png)
 
-5. Hablilitar y arrancar elservicio Docker
-
+4. Hablilitar y arrancar elservicio Docker
 ![Docker funcionando](img/docker_5.png)
+    - Verificamos la instalacion con el comoando **docker** que muestra la lista de comandos disponibles
 
-- Verificamos la instalacion con el comoando **docker** que muestra la lista de comandos disponibles
+5. También se probo una instalacion alternativa para Docker CE 
 
-6. También se probo una instalacion alternativa para Docker CE 
-
-- Se probó agregar el repositorio oficial de Docker CE para Debian (base de Kali) y actualizar la instalación:
+    - Se probó agregar el repositorio oficial de Docker CE para Debian (base de Kali) y actualizar la instalación:
 
 ![Docker funcionando](img/docker_7.png)
 
@@ -124,21 +119,36 @@ Para la instalación de Docker en Kali Linux seguimos los pasos oficiales de la 
 
 ![Docker funcionando](img/docker_9.png)
 
-7. Pro ultimo probar la ejecución con contenedor “Hello World”
-
-- docker run hello-world
+6. Por ultimo probar la ejecución con contenedor “Hello World”
 
 ![Docker funcionando](img/docker_10.png)
 
 #### 5. Ejecución de OWASP Juice Shop en Docker
 
-- Comando usado (`docker run ...`).
+El objetivo es levantar OWASP Juice Shop en un contenedor Docker para usarlo como aplicación vulnerable de práctica.
 
-- Verificación desde el navegador.
+1.  Definir docker-compose.yml
 
-![Juice Shop en ejecución](img/juice_shop.png)
+![Doker compose](img/juice_1.png)
 
-  
+2. Levantamos el servicio
+
+    - docker compose up -d
+    ![Doker compose](img/juice_3.png)
+
+3. Verificamos que esta corriendo
+
+    - docker ps
+    ![Doker compose](img/juice_5.png)
+
+4. Probamos ver la pagina en el navegador
+
+    - Abrimos http://127.0.0.1:3000 dentro de la VM y comprobamos la pantalla de bienvenida.
+
+    ![Doker compose](img/juice_4.png)
+
+
+
 
 ---
 
