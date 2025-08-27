@@ -30,15 +30,15 @@
 1. Descargar la **VM  de Kali Linux** desde [Kali.org](https://www.kali.org/).
 Kali ofrece a la hora de instalar maquinas virtuales prearmadas las cuales nos facilitan el proceso de configuración del sistema y viene con credenciales por defecto. De lo contrario, existen varias alternativas para descargarlo, como la propia imagen.
 
-2. En VirtualBox:
+2. **En VirtualBox:**
     -   Herramientas → Añadir...
     -   Seleccionar el archivo `.vbox` descargado
         
 ![Instalación Kali Linux](img/Kali_configurado.png)
 
-3. Iniciar la VM → elegir _Install_.
+3. **Iniciar la VM → elegir _Install_.**
 
-4. Completar instalación con usuario/contraseña (kali/kali).
+4. **Completar instalación con usuario/contraseña (kali/kali).**
 
 ---
 
@@ -64,15 +64,15 @@ Utilizamos como proxy de interceptación **Burp Suite**. Como otra opción se pu
 
 Para realizar la instalación de **Visual Studio Code** en Kali Linux se debe seguir los siguientes pasos:
 
-1. Descargar el paquete oficial en formato `.deb` desde la página de Microsoft:
+1. **Descargar el paquete oficial en formato `.deb` desde la página de Microsoft:**
 ```bash
 wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868
 ```
-2. Instalar el paquete descargado:
+2. **Instalar el paquete descargado:**
 ```bash
 sudo apt install ./code.deb
 ```
-3. Verificar que la instalación se realizó correctamente ejecutar:
+3. **Verificar que la instalación se realizó correctamente ejecutar:**
 ```bash
 code --version
 ```
@@ -85,25 +85,25 @@ code --version
 
 Para la instalación de Docker en Kali Linux seguimos los pasos oficiales de la documentación de [https://www.kali.org/](Kali.org). Durante la instalación registramos los comandos ejecutados y sus salidas junto a la configuracion
 
-1. Buscar documentacion en [https://www.kali.org/](Kali.org)
+1. **Buscar documentacion en [https://www.kali.org/](Kali.org)**
 
 ![Docker funcionando](img/docker_1.png)
 
-2. Actualizar con apt update el gestor de paquetes de Debian
+2. **Actualizar con apt update el gestor de paquetes de Debian**
 
 ![Docker funcionando](img/docker_2.png)
 
-3. Instalar paquete docker.io
+3. **Instalar paquete docker.io**
     - Durante la instalación el sistema pidió confirmación para reiniciar servicios críticos como libc6. Se eligió la opción Yes para evitar problemas en futuros upgrades.
 
 ![Docker funcionando](img/docker_4.png)
 ![Docker funcionando](img/docker_3.png)
 
-4. Habilitar y arrancar el servicio Docker
+4. **Habilitar y arrancar el servicio Docker**
 ![Docker funcionando](img/docker_5.png)
     - Verificar la instalación con el comando `docker` que muestra la lista de comandos disponibles
 
-5. También se probó una instalación alternativa para Docker CE 
+5. **También se probó una instalación alternativa para Docker CE**
 
     - Se probó agregar el repositorio oficial de Docker CE para Debian (base de Kali) y actualizar la instalación:
 
@@ -113,7 +113,7 @@ Para la instalación de Docker en Kali Linux seguimos los pasos oficiales de la 
 
 ![Docker funcionando](img/docker_9.png)
 
-6. Por último, probar la ejecución con contenedor “Hello World”
+6. **Por último, probar la ejecución con contenedor “Hello World”**
 
 ![Docker funcionando](img/docker_10.png)
 
@@ -121,38 +121,77 @@ Para la instalación de Docker en Kali Linux seguimos los pasos oficiales de la 
 
 El objetivo es levantar OWASP Juice Shop en un contenedor Docker para usarlo como aplicación vulnerable de práctica.
 
-1.  Definir docker-compose.yml
+1.  **Definir docker-compose.yml**
 
-![Doker compose](img/juice_1.png)
+    ![Docker compose](img/juice_1.png)
 
-2. Levantar el servicio
+2. **Levantar el servicio**
 
     - docker compose up -d
-    ![Doker compose](img/juice_3.png)
+    ![Docker compose](img/juice_3.png)
 
-3. Verificar que está corriendo
+3. **Verificar que está corriendo**
 
     - docker ps
-    ![Doker compose](img/juice_5.png)
+    ![Docker compose](img/juice_5.png)
 
-4. Probar ver la página en el navegador
+4. **Probar ver la página en el navegador**
 
     - Abrir http://127.0.0.1:3000 dentro de la VM y comprobar la pantalla de bienvenida.
 
-    ![Doker compose](img/juice_4.png)
-
-
-
+    ![Docker compose](img/juice_4.png)
+    
 
 ---
 
+
 #### 6. Ejecución de CrAPI en Docker
 
-- Comandos para levantar CrAPI.
+Para ejecutar CrAPI utilizando Docker, sigue los siguientes pasos:
 
-- Verificación.
+##### Comandos para levantar CrAPI
 
-![CrAPI en ejecución](img/crAPI.png)
+1. **Descargar el proyecto CrAPI:**
+   
+    ```bash
+    curl -L -o /tmp/crapi.zip https://github.com/OWASP/crAPI/archive/refs/heads/main.zip
+    ```
+    ![Descarga del proyecto CrAPI](img/crapi_1.png)
+
+2. **Descomprimir el archivo descargado:**
+   
+    ```bash
+    unzip /tmp/crapi.zip -d /tmp/
+    ```
+    ![Descompresión del archivo](img/crapi_2.png)
+
+3. **Acceder al directorio de despliegue de Docker:**
+   
+    ```bash
+    cd /tmp/crAPI-main/deploy/docker
+    ```
+    ![Acceso al directorio docker](img/crapi_3.png)
+
+4. **Descargar las imágenes necesarias:**
+   
+    ```bash
+    docker compose pull
+    ```
+    ![Descarga de imágenes Docker](img/crapi_4.png)
+
+5. **Levantar los servicios de CrAPI:**
+   
+    ```bash
+    docker compose -f docker-compose.yml --compatibility up -d
+    ```
+    ![Levantando los servicios](img/crapi_5.png)
+
+##### Verificación
+
+    Una vez levantados los servicios, puedes verificar que CrAPI está corriendo accediendo a la interfaz web en `http://localhost:8888/login` desde tu navegador. Deberías ver la pantalla de login de CrAPI.
+
+
+![Verificacion](img/crapi_6.png)
 
 ---
 
@@ -167,10 +206,18 @@ El objetivo es levantar OWASP Juice Shop en un contenedor Docker para usarlo com
 ---
 
 ### - Conclusiones
-- Qué aprendieron.
 
-- Dificultades encontradas.
+- **Qué aprendimos:**
+    - A instalar y configurar herramientas esenciales para el desarrollo seguro, como Kali Linux, Burp Suite, VS Code y Docker.
+    - A desplegar aplicaciones vulnerables (Juice Shop y CrAPI) en contenedores para prácticas de seguridad.
+    - A interceptar y analizar tráfico HTTP usando un proxy.
 
-- Importancia de tener este ambiente configurado para prácticas futuras.
+- **Dificultades encontradas:**
+    - Problemas de compatibilidad y dependencias al instalar Docker en Kali Linux.
+    - Errores menores en la descarga y descompresión de archivos por rutas o permisos.
+
+- **Importancia de tener este ambiente configurado para prácticas futuras:**
+    - Permite experimentar y aprender sobre seguridad en un entorno controlado y seguro.
+    - Facilita la repetición de pruebas y la automatización de laboratorios.
 
 [^1]: _Repaso de requerimientos_ en [presentación](https://docs.google.com/presentation/d/14oCaDqbFJmKry1sLu52F05zn_VbXAuCq/edit?slide=id.g14452321f13_0_160) de OWASP Uruguay sobre el práctico 1.
