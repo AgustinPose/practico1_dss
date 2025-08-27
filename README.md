@@ -13,7 +13,7 @@
 ---
 
 ### - Introducción
-- El objetivo de este documento es presentar el proceso de creación y configuración de un ambiente de trabajo seguro para posteriores actividades de la materia, de forma crónica y explicativa,
+- El objetivo de este documento es presentar el proceso de creación y configuración de un ambiente de trabajo seguro para posteriores actividades de la materia, de forma crónica y explicativa.
 
 ---
 
@@ -57,7 +57,7 @@ Utilizamos como proxy de interceptación **Burp Suite**. Como otra opción se pu
 ![Proxy configurado](img/burpsuite_4.png)
 
 - Se observa la interfaz gráfica de Burp Suite con todas las herramientas que brinda.
-  
+
 ---
 
 #### 3. Instalación de Visual Studio Code en Kali Linux
@@ -141,9 +141,6 @@ El objetivo es levantar OWASP Juice Shop en un contenedor Docker para usarlo com
 
     ![Doker compose](img/juice_4.png)
 
-
-
-
 ---
 
 #### 6. Ejecución de CrAPI en Docker
@@ -167,10 +164,9 @@ El objetivo es levantar OWASP Juice Shop en un contenedor Docker para usarlo com
 ---
 
 ### - Conclusiones
-- Qué aprendieron.
+- Se configuró un entorno de trabajo seguro sobre una máquina virtual con Kali Linux. Se instalaron las herramientas requeridas: Burp Suite como proxy de interceptación, Visual Studio Code como editor, Docker como motor de contenedores y se desplegaron aplicaciones vulnerables como OWASP Juice Shop y CrAPI. Finalmente, se verificó la correcta intercepción del tráfico en el proxy. La creación de este ambiente es fundamental porque provee una base controlada y replicable para futuros ejercicios de seguridad
 
-- Dificultades encontradas.
+- Entre los principales beneficios se destaca la posibilidad de trabajar con aplicaciones vulnerables de forma rápida y portable gracias a Docker, junto con la facilidad de análisis que proporciona el uso de un proxy de interceptación para visualizar el tráfico.
 
-- Importancia de tener este ambiente configurado para prácticas futuras.
 
 [^1]: _Repaso de requerimientos_ en [presentación](https://docs.google.com/presentation/d/14oCaDqbFJmKry1sLu52F05zn_VbXAuCq/edit?slide=id.g14452321f13_0_160) de OWASP Uruguay sobre el práctico 1.
