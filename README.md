@@ -46,13 +46,9 @@ Kali ofrece a la hora de instalar maquinas virtuales prearmadas las cuales nos f
 
 Utilizamos como proxy de interceptación **Burp Suite**. Como otra opción se puede probar con la instalación de **ZAP**.
 
-- En este caso con la instalación de la maquina virtual de kali ya viene instalado como Proxy **Burp Suite**, por lo que solo es necesario hacer el setup de la aplicación.
-
-![Proxy configurado](img/burpsuite_1.png)
+- En este caso con la instalación de la maquina virtual de kali ya viene instalado como Proxy **Burp Suite**, por lo que solo es necesario hacer el setup de la aplicación o ejecutar el comando **burpsuite** en la terminal
 
 ![Proxy configurado](img/burpsuite_2.png)
-
-![Proxy configurado](img/burpsuite_3.png)
 
 ![Proxy configurado](img/burpsuite_4.png)
 
@@ -87,29 +83,27 @@ Para la instalación de Docker en Kali Linux seguimos los pasos oficiales de la 
 
 1. **Buscar documentacion en [https://www.kali.org/](Kali.org)**
 
-![Docker funcionando](img/docker_1.png)
+2. **Actualizar el gestor de paquetes de Debian**
 
-2. **Actualizar con apt update el gestor de paquetes de Debian**
-
-![Docker funcionando](img/docker_2.png)
+    - Comando: apt update 
 
 3. **Instalar paquete docker.io**
+
+    - Comando: sudo apt install -y docker.io
     - Durante la instalación el sistema pidió confirmación para reiniciar servicios críticos como libc6. Se eligió la opción Yes para evitar problemas en futuros upgrades.
 
-![Docker funcionando](img/docker_4.png)
-![Docker funcionando](img/docker_3.png)
-
 4. **Habilitar y arrancar el servicio Docker**
-![Docker funcionando](img/docker_5.png)
+
+    - Comando: sudo systemctl enable docker --now
     - Verificar la instalación con el comando `docker` que muestra la lista de comandos disponibles
 
-5. **También se probó una instalación alternativa para Docker CE**
+6. **También se probó una instalación alternativa para Docker CE**
 
     - Se probó agregar el repositorio oficial de Docker CE para Debian (base de Kali) y actualizar la instalación:
-
-![Docker funcionando](img/docker_7.png)
-
-![Docker funcionando](img/docker_8.png)
+    - Comandos:
+      1. echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \ https://download.docker.com/linux/debian bookworm stable" | \ sudo tee /etc/apt/sources.list.d/docker.list
+      2. sudo apt update
+      3. sudo apt install -y docker-ce docker-ce-cli containerd.io
 
 ![Docker funcionando](img/docker_9.png)
 
@@ -127,13 +121,11 @@ El objetivo es levantar OWASP Juice Shop en un contenedor Docker para usarlo com
 
 2. **Levantar el servicio**
 
-    - docker compose up -d
-    ![Docker compose](img/juice_3.png)
+    - Comando: docker compose up -d
 
 3. **Verificar que está corriendo**
 
     - docker ps
-    ![Docker compose](img/juice_5.png)
 
 4. **Probar ver la página en el navegador**
 
@@ -156,21 +148,19 @@ Para ejecutar CrAPI utilizando Docker, sigue los siguientes pasos:
     ```bash
     curl -L -o /tmp/crapi.zip https://github.com/OWASP/crAPI/archive/refs/heads/main.zip
     ```
-    ![Descarga del proyecto CrAPI](img/crapi_1.png)
 
 2. **Descomprimir el archivo descargado:**
    
     ```bash
     unzip /tmp/crapi.zip -d /tmp/
     ```
-    ![Descompresión del archivo](img/crapi_2.png)
+
 
 3. **Acceder al directorio de despliegue de Docker:**
    
     ```bash
     cd /tmp/crAPI-main/deploy/docker
     ```
-    ![Acceso al directorio docker](img/crapi_3.png)
 
 4. **Descargar las imágenes necesarias:**
    
@@ -184,7 +174,6 @@ Para ejecutar CrAPI utilizando Docker, sigue los siguientes pasos:
     ```bash
     docker compose -f docker-compose.yml --compatibility up -d
     ```
-    ![Levantando los servicios](img/crapi_5.png)
 
 ##### Verificación
 
