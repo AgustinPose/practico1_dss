@@ -83,27 +83,44 @@ Para la instalación de Docker en Kali Linux seguimos los pasos oficiales de la 
 
 1. **Buscar documentacion en [https://www.kali.org/](Kali.org)**
 
+
 2. **Actualizar el gestor de paquetes de Debian**
 
-    - Comando: apt update 
+    ```bash
+    apt update
+    ```
+
 
 3. **Instalar paquete docker.io**
 
-    - Comando: sudo apt install -y docker.io
-    - Durante la instalación el sistema pidió confirmación para reiniciar servicios críticos como libc6. Se eligió la opción Yes para evitar problemas en futuros upgrades.
+    ```bash
+    sudo apt install -y docker.io
+    ```
+    Durante la instalación el sistema pidió confirmación para reiniciar servicios críticos como libc6. Se eligió la opción Yes para evitar problemas en futuros upgrades.
+
 
 4. **Habilitar y arrancar el servicio Docker**
 
-    - Comando: sudo systemctl enable docker --now
-    - Verificar la instalación con el comando `docker` que muestra la lista de comandos disponibles
+    ```bash
+    sudo systemctl enable docker --now
+    ```
+    Verificar la instalación con el comando:
+    ```bash
+    docker
+    ```
+    que muestra la lista de comandos disponibles
+
 
 6. **También se probó una instalación alternativa para Docker CE**
 
-    - Se probó agregar el repositorio oficial de Docker CE para Debian (base de Kali) y actualizar la instalación:
-    - Comandos:
-      1. echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \ https://download.docker.com/linux/debian bookworm stable" | \ sudo tee /etc/apt/sources.list.d/docker.list
-      2. sudo apt update
-      3. sudo apt install -y docker-ce docker-ce-cli containerd.io
+    Se probó agregar el repositorio oficial de Docker CE para Debian (base de Kali) y actualizar la instalación:
+    ```bash
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+    https://download.docker.com/linux/debian bookworm stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list
+    sudo apt update
+    sudo apt install -y docker-ce docker-ce-cli containerd.io
+    ```
 
 ![Docker funcionando](img/docker_9.png)
 
@@ -115,21 +132,26 @@ Para la instalación de Docker en Kali Linux seguimos los pasos oficiales de la 
 
 El objetivo es levantar OWASP Juice Shop en un contenedor Docker para usarlo como aplicación vulnerable de práctica.
 
+
 1.  **Definir docker-compose.yml**
 
     ![Docker compose](img/juice_1.png)
 
 2. **Levantar el servicio**
 
-    - Comando: docker compose up -d
+    ```bash
+    docker compose up -d
+    ```
 
 3. **Verificar que está corriendo**
 
-    - docker ps
+    ```bash
+    docker ps
+    ```
 
 4. **Probar ver la página en el navegador**
 
-    - Abrir http://127.0.0.1:3000 dentro de la VM y comprobar la pantalla de bienvenida.
+    Abrir http://127.0.0.1:3000 dentro de la VM y comprobar la pantalla de bienvenida.
 
     ![Docker compose](img/juice_4.png)
     
